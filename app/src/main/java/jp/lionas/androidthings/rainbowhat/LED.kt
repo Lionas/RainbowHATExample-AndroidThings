@@ -15,22 +15,9 @@ class LED {
 
     fun init() {
 
-        ledA = initLED(ledA, RainbowHat.LED_RED)
-        ledB = initLED(ledB, RainbowHat.LED_GREEN)
-        ledC = initLED(ledC, RainbowHat.LED_BLUE)
-
-    }
-
-    private fun initLED(ledGpio: Gpio?, color: String): Gpio? {
-
-        var led : Gpio? = ledGpio
-
-        if (led == null) {
-            led = RainbowHat.openLed(color)
-        }
-        led?.value = false
-
-        return led
+        ledA = RainbowHat.openLedRed()
+        ledB = RainbowHat.openLedGreen()
+        ledC = RainbowHat.openLedBlue()
 
     }
 

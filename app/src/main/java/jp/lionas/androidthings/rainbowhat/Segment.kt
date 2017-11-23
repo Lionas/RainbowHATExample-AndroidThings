@@ -24,8 +24,8 @@ class Segment {
 
     }
 
-    fun display(type: Buzzer.TYPE) {
-        alphaDisplay?.display(type.displayFreq)
+    fun display(text: String) {
+        alphaDisplay?.display(text)
     }
 
     fun close() {

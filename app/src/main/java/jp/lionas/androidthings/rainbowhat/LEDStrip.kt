@@ -15,11 +15,8 @@ class LEDStrip {
 
     fun init() {
 
-        if (ledStrip == null) {
-            ledStrip = RainbowHat.openLedStrip()
-        }
-
-        ledStrip?.setBrightness(1)
+        ledStrip = RainbowHat.openLedStrip()
+        ledStrip?.brightness = 1
         for (i in 0 until rainbow.size) {
             rainbow[i] = Color.HSVToColor(255, floatArrayOf(i * 360f / rainbow.size, 1.0f, 1.0f))
         }
@@ -35,14 +32,14 @@ class LEDStrip {
 
     fun on() {
 
-        ledStrip?.setBrightness(1)
+        ledStrip?.brightness = 1
         ledStrip?.write(rainbow)
 
     }
 
     fun off() {
 
-        ledStrip?.setBrightness(0)
+        ledStrip?.brightness = 0
         ledStrip?.write(rainbow)
 
     }

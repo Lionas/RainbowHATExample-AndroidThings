@@ -1,7 +1,6 @@
 package jp.lionas.androidthings.rainbowhat
 
 import android.view.KeyEvent
-import com.google.android.things.contrib.driver.button.Button
 import com.google.android.things.contrib.driver.button.ButtonInputDriver
 import com.google.android.things.contrib.driver.rainbowhat.RainbowHat
 
@@ -17,21 +16,13 @@ class RainbowHatButton {
 
     fun init() {
 
-        buttonA = initButton(RainbowHat.BUTTON_A, EVENT_BUTTON_A)
-        buttonB = initButton(RainbowHat.BUTTON_B, EVENT_BUTTON_B)
-        buttonC = initButton(RainbowHat.BUTTON_C, EVENT_BUTTON_C)
+        buttonA = RainbowHat.createButtonAInputDriver(EVENT_BUTTON_A)
+        buttonB = RainbowHat.createButtonBInputDriver(EVENT_BUTTON_B)
+        buttonC = RainbowHat.createButtonCInputDriver(EVENT_BUTTON_C)
 
-    }
-
-    private fun initButton(portName: String, keycode: Int): ButtonInputDriver? {
-
-        val buttonInputDriver : ButtonInputDriver? = ButtonInputDriver(
-                portName,
-                Button.LogicState.PRESSED_WHEN_LOW,
-                keycode)
-        buttonInputDriver?.register()
-
-        return buttonInputDriver
+        buttonA?.register()
+        buttonB?.register()
+        buttonC?.register()
 
     }
 

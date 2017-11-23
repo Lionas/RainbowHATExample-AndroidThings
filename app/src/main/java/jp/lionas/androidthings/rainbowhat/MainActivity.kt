@@ -1,6 +1,9 @@
 package jp.lionas.androidthings.rainbowhat
 
 import android.app.Activity
+import android.content.Context
+import android.hardware.SensorManager
+import android.os.Bundle
 
 import android.view.KeyEvent
 
@@ -14,8 +17,15 @@ class MainActivity : Activity() {
     private val ledStrip = LEDStrip()
     private val segment = Segment()
     private val buzzer = Buzzer()
+    private val sensor = RainbowHatSensor()
 
     // --- Life Cycle
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val manager : SensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
+        sensor.init(manager, segment)
+    }
+
     override fun onResume() {
 
         super.onResume()
@@ -25,6 +35,7 @@ class MainActivity : Activity() {
         segment.init()
         buzzer.init()
         ledStrip.init()
+        sensor.startSensor()
 
     }
 
@@ -40,14 +51,17 @@ class MainActivity : Activity() {
 
             RainbowHatButton.EVENT_BUTTON_A -> {
                 led.onA()
-                segment.display(Buzzer.TYPE.HIGH)
+                sensor.stopSensor()
+                segment.display(Buzzer.TYPE.HIGH.displayFreq)
                 buzzer.play(Buzzer.TYPE.HIGH)
+                ledStrip.off()
                 return true
             }
 
             RainbowHatButton.EVENT_BUTTON_B -> {
                 led.onB()
-                segment.display(Buzzer.TYPE.MIDDLE)
+                sensor.stopSensor()
+                segment.display(Buzzer.TYPE.MIDDLE.displayFreq)
                 buzzer.play(Buzzer.TYPE.MIDDLE)
                 ledStrip.on()
                 return true
@@ -55,7 +69,8 @@ class MainActivity : Activity() {
 
             RainbowHatButton. EVENT_BUTTON_C -> {
                 led.onC()
-                segment.display(Buzzer.TYPE.LOW)
+                sensor.stopSensor()
+                segment.display(Buzzer.TYPE.LOW.displayFreq)
                 buzzer.play(Buzzer.TYPE.LOW)
                 ledStrip.off()
                 return true
@@ -70,18 +85,21 @@ class MainActivity : Activity() {
 
         when (keyCode) {
             RainbowHatButton.EVENT_BUTTON_A -> {
+                sensor.startSensor()
                 led.off()
                 buzzer.stop()
                 return true
             }
 
             RainbowHatButton.EVENT_BUTTON_B -> {
+                sensor.startSensor()
                 led.off()
                 buzzer.stop()
                 return true
             }
 
             RainbowHatButton.EVENT_BUTTON_C -> {
+                sensor.startSensor()
                 led.off()
                 buzzer.stop()
                 return true
@@ -99,6 +117,7 @@ class MainActivity : Activity() {
         ledStrip.close()
         segment.close()
         buzzer.close()
+        sensor.close()
 
     }
 

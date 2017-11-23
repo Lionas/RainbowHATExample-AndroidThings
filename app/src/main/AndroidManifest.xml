@@ -3,6 +3,7 @@
     package="jp.lionas.androidthings.rainbowhat">
 
     <uses-permission android:name="com.google.android.things.permission.MANAGE_INPUT_DRIVERS" />
+    <uses-permission android:name="com.google.android.things.permission.MANAGE_SENSOR_DRIVERS" />
 
     <application android:allowBackup="true"
         android:icon="@android:drawable/sym_def_app_icon"
