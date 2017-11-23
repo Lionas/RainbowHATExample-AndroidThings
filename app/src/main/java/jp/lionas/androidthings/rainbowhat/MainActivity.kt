@@ -58,14 +58,14 @@ class MainActivity : Activity() {
 
         when (keyCode) {
             EVENT_BUTTON_A -> {
-                mLedA!!.value = true
+                mLedA?.value = true
                 segment?.display(BUZZER.HIGH.displayFreq)
                 buzzer?.play(BUZZER.HIGH.freq.toDouble())
                 return true
             }
 
             EVENT_BUTTON_B -> {
-                mLedB!!.value = true
+                mLedB?.value = true
                 segment?.display(BUZZER.MIDDLE.displayFreq)
                 buzzer?.play(BUZZER.MIDDLE.freq.toDouble())
                 powerOn7LED()
@@ -73,7 +73,7 @@ class MainActivity : Activity() {
             }
 
             EVENT_BUTTON_C -> {
-                mLedC!!.value = true
+                mLedC?.value = true
                 segment?.display(BUZZER.LOW.displayFreq)
                 buzzer?.play(BUZZER.LOW.freq.toDouble())
                 powerOff7LED()
@@ -127,7 +127,7 @@ class MainActivity : Activity() {
         if (led == null) {
             led = RainbowHat.openLed(color)
         }
-        led!!.value = false
+        led?.value = false
 
         return led
 
