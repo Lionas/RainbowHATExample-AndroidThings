@@ -5,6 +5,11 @@ Android Things Example for Raspberry Pi 3
 このプロジェクトは、[PIMORONI](http://pimoroni.com)が発売している Android things スターターキット
 「Raspberry Pi 3 Starter Kit」の機能のデモです。
 
+![Box](./images/IMG_0984.JPG)
+
+## デモの様子
+![Movie](./images/IMG_0988.MOV)
+
 ## 実装機能
 
 - 以下の動作チェック機能
