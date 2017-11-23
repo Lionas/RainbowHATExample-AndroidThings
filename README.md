@@ -26,7 +26,4 @@ Android Things Example for Raspberry Pi 3
   - 温度
   - 湿度
   - 気圧
-  
-## 将来予定している変更
 
-- プロジェクトのKotlin化

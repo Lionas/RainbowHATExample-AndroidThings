@@ -1,8 +1,9 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 27
-    buildToolsVersion '25.0.2'
+    buildToolsVersion '27.0.1'
 
     defaultConfig {
         applicationId "jp.lionas.androidthings.rainbowhat"
@@ -23,4 +24,8 @@ dependencies {
     compile 'com.google.android.things.contrib:driver-button:0.3'
     provided 'com.google.android.things:androidthings:0.4-devpreview'
     compile 'com.google.android.things.contrib:driver-rainbowhat:0.1'
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }
