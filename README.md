@@ -8,7 +8,7 @@ Android Things Example for Raspberry Pi 3
 ![Box](./images/IMG_0984.JPG)
 
 ## デモの様子
-![デモムービー](https://youtu.be/7rbccxNc32U)
+[![デモムービー](http://img.youtube.com/vi/7rbccxNc32U/0.jpg)](http://www.youtube.com/watch?v=7rbccxNc32U)
 
 ## 実装機能
 
