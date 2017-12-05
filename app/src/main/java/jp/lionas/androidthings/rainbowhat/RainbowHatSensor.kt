@@ -65,14 +65,14 @@ class RainbowHatSensor {
             when (sensorEvent.sensor.type) {
 
                 Sensor.TYPE_AMBIENT_TEMPERATURE -> {
-                    Log.d(TAG, "TEMPERATURE=" + sensorEvent.values[0])
+//                    Log.d(TAG, "TEMPERATURE=" + sensorEvent.values[0])
                     if (displayCount < 100) {
                         segment?.display("%4f.1".format(sensorEvent.values[0]))
                     }
                 }
 
                 Sensor.TYPE_PRESSURE -> {
-                    Log.d(TAG, "PRESSURE=" + sensorEvent.values[0])
+//                    Log.d(TAG, "PRESSURE=" + sensorEvent.values[0])
                     if (displayCount in 100..199) {
                         segment?.display("%4f.0".format(sensorEvent.values[0]))
                     }

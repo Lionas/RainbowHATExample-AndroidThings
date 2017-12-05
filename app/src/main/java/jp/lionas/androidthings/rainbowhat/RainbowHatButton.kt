@@ -42,9 +42,9 @@ class RainbowHatButton {
     }
 
     companion object {
-        val EVENT_BUTTON_A = KeyEvent.KEYCODE_0
-        val EVENT_BUTTON_B = KeyEvent.KEYCODE_1
-        val EVENT_BUTTON_C = KeyEvent.KEYCODE_2
+        val EVENT_BUTTON_A = KeyEvent.KEYCODE_X
+        val EVENT_BUTTON_B = KeyEvent.KEYCODE_Y
+        val EVENT_BUTTON_C = KeyEvent.KEYCODE_Z
     }
 
 }
